@@ -13,12 +13,7 @@ async function run(): Promise<void> {
     core.warning("empty issue body, return");
     return;
   }
-  try {
-    const parsed = JSON.parse(body);
-    core.setOutput("json", JSON.stringify(parsed));
-  } catch (err) {
-    core.setFailed(`Failed to parse as json: ${body}`)
-  }
+  core.setOutput("text", body);
 }
 
 run()
